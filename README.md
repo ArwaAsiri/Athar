@@ -24,7 +24,7 @@ Project ATHAR | أثر is a web application designed to visualize and manage var
 - **Google Maps API**: For map integration and displaying project markers.
 - **VS Code**: The primary IDE used for development.
 
-## Author: Arwa Asiri
+#### Author: Arwa Asiri
 
 ## Installation
 
