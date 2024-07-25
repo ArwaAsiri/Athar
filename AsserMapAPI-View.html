@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aseer Map Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+
+h3{
+    color: rgb(79, 132, 115);
+    font-size:40px;
+}
+
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .map {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .table {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        #table-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: right;
+        }
+
+        th {
+            background-color: #7a9c8b;
+            color: white;
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+        }
+
+        #input-container {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            text-align: right;
+        }
+
+        #input-container input {
+            display: block;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: right;
+            font-family: Arial, sans-serif;
+        }
+
+        #add-button {
+            padding: 10px 20px;
+            background-color: #2c6547;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            margin-right:550px;
+        }
+
+        #add-button:hover {
+            background-color: #7a9c8b;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .logo-container img {
+            width: 100px; /* Adjust the width as needed */
+            height: auto;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSxaBkNhvBm7bwiJ9dXv5Jixz2uJHJJVc"></script>
+    <script>
+
+        //Array to store each region with its projects data
+        var markersData = [
+            {
+                position: {lat: 18.2167, lng: 42.5000},
+                title: 'أبها',
+                tableData: [ //Array that stores each project as an element
+                    {image: '', progress: '50%', description: 'صيانة أعمدة الإنارة'},
+                    {image: '', progress: '40%', description: 'ترميم الطرقات'}
+
+                ]
+            },
+            {
+                position: {lat: 19.0733, lng: 42.1864},
+                title: 'النماص',
+                tableData: [
+                    {image: '', progress: '70%', description: 'بناء الحدائق'},
+                    {image: '', progress: '60%', description: 'ترميم الطرقات'}
+                ]
+            },
+            {
+                position: {lat: 19.8859, lng: 42.5822},
+                title: 'بيشة',
+                tableData: [
+                    {image: '', progress: '30%', description: 'صيانة أعمدة الإنارة'},
+                    {image: '', progress: '50%', description: 'بناء الحدائق'},
+                    {image: '', progress: '40%', description: 'ترميم الطرقات'}
+                ]
+            }
+        ];
+
+        var currentMarkerIndex = null; // To track which marker's table is currently displayed
+
+//creat the map
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: markersData[0].position
+            });
+
+            //create a listener for each marker to detec a click
+
+            markersData.forEach(function(markerData, index) {
+                var marker = new google.maps.Marker({
+                    position: markerData.position,
+                    map: map,
+                    title: markerData.title
+                });
+
+                marker.addListener('click', function() {
+                    currentMarkerIndex = index; // Set current marker index
+                    showTable(markerData.tableData, markerData.title);
+                });
+            });
+        }
+
+        //create then display the table 
+        function showTable(data, title) {
+            var tableContainer = document.getElementById('table-container');
+            var table = '<h2 style="text-align: right;">' + title + '</h2>';
+            table += '<table><tr><th>نسبة الإنجاز</th><th>وصف المشروع</th></tr>';
+
+            data.forEach(function(row) {
+                table += '<tr style="background-color: #f2f2f2;">' +
+                    
+                    '<td style="background-color: #e6e6e6; color: #333;">' + row.progress + '</td>' +
+                    '<td style="background-color: #e6e6e6; color: #333;">' + row.description + '</td>' +
+                    '</tr>';
+            });
+
+            table += '</table>';
+            tableContainer.innerHTML = table;
+            tableContainer.style.display = 'block';
+        }
+
+        
+    </script>
+</head>
+<body onload="initMap()">
+    <div class="container">
+        <div class="map">
+            <div id="map"></div>
+        </div>
+        <div class="table">
+            <div id="table-container"></div>
+            
+        </div>
+    </div>
+</body>
+</html>

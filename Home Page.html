@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('BGmap.jpg');
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .full-height {
+            height: 100vh;
+        }
+        .card {
+            transition: background-color 0.3s ease;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to the card */
+        }
+        .card:hover {
+            background-color: #91a49f;
+            color:rgb(255, 255, 255);
+        }
+        .card-title {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 15px;
+            color: rgb(79, 132, 115);
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="container d-flex justify-content-center align-items-center full-height">
+        <div class="col">
+            <img src="Logo.png" height="300" width="">
+        </div>
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-center mb-3">
+                <a href="AsserMapAPI-View.html" class="card-link">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">اطلع على المشاريع الحالية! </h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                            <p class="card-text"></p>
+                            <a href="#" class="card-link"></a>
+                            <a href="#" class="card-link"></a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center mb-3">
+                <a href="LogIn.html" class="card-link">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">أضف مشروع جديد</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                            <p class="card-text"></p>
+                            <a href="AseerMapDashboard" class="card-link"></a>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
