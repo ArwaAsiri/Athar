@@ -27,6 +27,8 @@ Project ATHAR | أثر is a web application designed to visualize and manage var
 ## Author:
   Arwa Asiri
 
+## Demo:
+https://www.canva.com/design/DAGL7p0sp54/vcb-OM-cQxc5Kj3iMjrNeQ/edit?utm_content=DAGL7p0sp54&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 ## Installation
 
 1. Clone the repository:
